@@ -1,66 +1,38 @@
-<!doctype html>
-<html lang="zh-Hans">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>KK 마사지 스파</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="banner">
-    <div class="banner-overlay">
-      <div class="banner-content">
-        <h1 class="site-title">KK 마사지 스파</h1>
-        <p class="site-subtitle">尊贵、私密、专业的 출장마사지 上门按摩服务</p>
-        <a class="btn-primary" href="about.html">了解我们</a>
+<section id="contact" class="contact">
+  <h2 class="section-title">예약 및 연락처</h2>
+
+  <!-- 使用独立的 contact 片段 -->
+  <div data-include="contact.html" class="include-slot" aria-hidden="false">
+    <!-- 如果浏览器禁用 JS，可在 noscript 中提供回退 -->
+    <noscript>
+      <div class="contact-list">
+        <div class="contact-item">
+          <a class="contact-link" href="tel:+821012345678">
+            <span class="contact-text">전화 / 카카오톡</span>
+            <span class="contact-meta">010-1234-5678</span>
+          </a>
+        </div>
+        <div class="contact-item">
+          <a class="contact-link" href="mailto:reservations@example.com">
+            <span class="contact-text">이메일</span>
+            <span class="contact-meta">reservations@example.com</span>
+          </a>
+        </div>
       </div>
-    </div>
-    <!-- banner image: 请把你的图片命名为 images/banner.jpg -->
-    <img class="banner-img" src="images/banner.jpg" alt="上门按摩 Banner" />
-  </header>
+    </noscript>
+  </div>
 
-  <main class="container">
-    <section id="services" class="services">
-      <h2 class="section-title">服务项目</h2>
-      <div class="service-grid">
-        <article class="service-item">
-          <div class="service-image placeholder">图片1（后续替换）</div>
-          <h3>全身放松按摩</h3>
-          <p>传统手法结合现代理疗，缓解疲劳与肌肉酸痛。</p>
-        </article>
+  <!-- 기존地图 -->
+  <div class="map-wrap">
+    <iframe
+      id="gmap"
+      title="매장 위치"
+      src="https://www.google.com/maps?q=Seoul+Gangnam+Station&output=embed"
+      allowfullscreen
+      loading="lazy"
+    ></iframe>
+  </div>
+</section>
 
-        <article class="service-item">
-          <div class="service-image placeholder">图片2（后续替换）</div>
-          <h3>精油舒缓按摩</h3>
-          <p>使用高品质精油，提升放松体验，促进睡眠与血液循环。</p>
-        </article>
-
-        <article class="service-item">
-          <div class="service-image placeholder">图片3（后续替换）</div>
-          <h3>深层组织按摩</h3>
-          <p>针对深层肌群进行专业手法，适合长期疲劳或运动恢复。</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <h2 class="section-title">预约与联系方式</h2>
-      <p>电话 / 微信 / LINE: <strong>请填入你的联系方式</strong></p>
-      <p>我们提供上门服务（全部称为 “출장마사지”），服务范围、价格与可预约时间请咨询客服。</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <nav>
-      <a href="index.html">首页</a> ·
-      <a href="about.html">关于我们</a>
-    </nav>
-    <p>© <span id="year"></span> KK 마사지 스파</p>
-  </footer>
-
-  <script>
-    // 简单脚本：自动插入年份
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+<!-- 在页面底部引入 includes.js（路径按实际放置位置修改） -->
+<script src="includes.js"></script>

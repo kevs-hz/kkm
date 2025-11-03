@@ -26,36 +26,76 @@
     </header>
 
     <main class="container about-container">
-        <section class="about-section">
-            <h2>전문 테라피스트</h2>
-            <p>모든 테라피스트는 국가자격증 보유 및 체계적인 내부 교육을 이수하였습니다. 친절한 매너와 뛰어난 기술로 고객의 상태를 정확히 파악하여 안전하고 효과적인 맞춤 케어를 제공합니다.</p>
+        <!-- 大图 + 文字两列布局 -->
+        <section class="about-main">
+            <div class="about-image-large">
+                <img src="service1.jpg" alt="KKMassage 전문 테라피스트">
+            </div>
+            <div class="about-text">
+                <h2>전문 테라피스트</h2>
+                <p>모든 테라피스트는 국가자격증 보유 및 체계적인 내부 교육을 이수하였습니다. 친절한 매너와 뛰어난 기술로 고객의 상태를 정확히 파악하여 안전하고 효과적인 맞춤 케어를 제공합니다.</p>
 
-            <h2>서비스 철학</h2>
-            <p>KKMassage | ㅋㅋ마사지는 고객의 신체적 회복과 정서적 안정을 동시에 추구합니다. 프라이버시를 최우선으로 하여 편안한 환경에서 최상의 서비스를 제공합니다.</p>
+                <h2>서비스 철학</h2>
+                <p>KKMassage | ㅋㅋ마사지는 고객의 신체적 회복과 정서적 안정을 동시에 추구합니다. 프라이버시를 최우선으로 하여 편안한 환경에서 최상의 서비스를 제공합니다.</p>
 
-            <h2>위생 및 안전</h2>
-            <ul>
-                <li>도구 및 침구류는 1회용 또는 고온 소독 처리합니다.</li>
-                <li>방문 전 마사지사 신원 및 위생 상태를 재확인합니다.</li>
-                <li>서비스 도중 불편함이 있으면 즉시 중단하고 조치합니다.</li>
-            </ul>
+                <h2>위생 및 안전</h2>
+                <ul class="about-list">
+                    <li><span class="list-icon">✓</span> 도구 및 침구류는 1회용 또는 고온 소독 처리합니다.</li>
+                    <li><span class="list-icon">✓</span> 방문 전 마사지사 신원 및 위생 상태를 재확인합니다.</li>
+                    <li><span class="list-icon">✓</span> 서비스 도중 불편함이 있으면 즉시 중단하고 조치합니다.</li>
+                </ul>
 
-            <h2>자주 묻는 질문</h2>
-            <h3>예약 취소 정책</h3>
-            <p>예약 변경/취소는 방문 6시간 전까지 가능합니다. 당일 취소 시 취소 수수료가 발생할 수 있습니다.</p>
-
-            <h3>결제 방법</h3>
-            <p>방문 시 현금 또는 카드 결제가 가능하며, 온라인 결제/계좌이체 등 추후 지원 예정입니다.</p>
-
-            <div class="team-map">
-                <div class="team-image">
-                    <img src="service1.jpg" alt="테라피스트 이미지">
+                <h2>자주 묻는 질문</h2>
+                <div class="faq-item">
+                    <h3>예약 취소 정책</h3>
+                    <p>예약 변경/취소는 방문 6시간 전까지 가능합니다. 당일 취소 시 취소 수수료가 발생할 수 있습니다.</p>
                 </div>
-                <div class="team-info">
-                    <h3>문의 및 예약</h3>
-                    <p>전화: <a href="tel:010-0000-0000">010-0000-0000</a></p>
-                    <p>카카오톡: <a href="https://pf.kakao.com/" target="_blank">카카오톡 상담</a></p>
-                    <p>운영시간: 10:00 ~ 02:00</p>
+                <div class="faq-item">
+                    <h3>결제 방법</h3>
+                    <p>방문 시 현금 또는 카드 결제가 가능하며, 온라인 결제/계좌이체 등 추후 지원 예정입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务画廊：3张图片横向网格 -->
+        <section class="gallery-section">
+            <h2 class="section-title">서비스 갤러리</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="service1.jpg" alt="스웨디시 마사지">
+                </div>
+                <div class="gallery-item">
+                    <img src="service2.jpg" alt="아로마 오일 마사지">
+                </div>
+                <div class="gallery-item">
+                    <img src="service3.jpg" alt="딥티슈 마사지">
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系方式：卡片式四列 -->
+        <section class="contact-box-section">
+            <h2 class="section-title">문의 및 예약</h2>
+            <div class="contact-box-grid">
+                <div class="contact-box">
+                    <span class="contact-box-icon">☎️</span>
+                    <h3>전화</h3>
+                    <p><a href="tel:010-0000-0000">010-0000-0000</a></p>
+                </div>
+                <div class="contact-box">
+                    <span class="contact-box-icon">💬</span>
+                    <h3>카카오톡</h3>
+                    <p><a href="https://pf.kakao.com/" target="_blank">카카오톡 상담</a></p>
+                </div>
+                <div class="contact-box">
+                    <span class="contact-box-icon">⏰</span>
+                    <h3>운영시간</h3>
+                    <p>10:00 ~ 02:00</p>
+                </div>
+                <div class="contact-box">
+                    <span class="contact-box-icon">📍</span>
+                    <h3>서비스 지역</h3>
+                    <p>서울, 경기, 인천</p>
                 </div>
             </div>
         </section>

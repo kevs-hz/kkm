@@ -1,0 +1,102 @@
+/* 기본 리셋 및 폰트 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: #222; line-height: 1.6; background: #fff; }
+
+/* 컨테이너 */
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+/* 배너 */
+.banner { position: relative; height: 420px; overflow: hidden; display: block; }
+.banner-img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.banner-overlay { position: relative; z-index: 2; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.banner-overlay::before {
+  content: "";
+  position: absolute; left:0; top:0; right:0; bottom:0;
+  background: linear-gradient(180deg, rgba(255,182,193,0.45), rgba(0,0,0,0.25));
+  z-index: -1;
+}
+
+/* 배너 내용 */
+.banner-content { text-align: center; color: #fff; padding: 20px; max-width: 900px; }
+.site-title { font-size: 42px; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
+.site-subtitle { font-size: 18px; margin-bottom: 16px; color: #ffeef6; }
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(90deg,#ff8fb8,#ff5fa0);
+  color: #fff; padding: 10px 18px; border-radius: 28px; text-decoration: none;
+  box-shadow: 0 6px 18px rgba(255,95,160,0.18);
+}
+.btn-secondary {
+  display: inline-block;
+  background: #f0f0f0; color: #333; padding: 10px 16px; border-radius: 6px; border: 1px solid #e6e6e6; cursor: pointer;
+}
+
+/* 작은 헤더(회사 소개 페이지용) */
+.small-header { background: #f9f5f7; padding: 30px 0 18px; margin-bottom: 18px; }
+.small-header .container h1 { font-size: 28px; margin-bottom: 6px; }
+.lead { color: #6b6b6b; margin-top: 4px; }
+
+/* 섹션 제목 */
+.section-title { font-size: 24px; margin: 18px 0; color: #222; }
+
+/* 서비스 그리드 */
+.service-grid { display: flex; gap: 18px; flex-wrap: wrap; }
+.service-item { flex: 1 1 calc(33.333% - 12px); background: #fff; border-radius: 8px; padding: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.service-item h3 { margin-top: 10px; margin-bottom: 8px; font-size: 18px; color: #222; }
+.service-item p { color: #555; font-size: 14px; }
+
+/* 이미지 스타일 */
+.service-image { width: 100%; height: 160px; border-radius: 6px; background: #f0f0f0; display: block; object-fit: cover; overflow: hidden; margin-bottom: 8px; }
+
+/* 예약 폼 스타일 */
+.booking { margin-top: 20px; }
+.booking-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; align-items: start; }
+.booking-form label { display: flex; flex-direction: column; font-size: 14px; color: #333; }
+.booking-form input[type="text"],
+.booking-form input[type="tel"],
+.booking-form input[type="datetime-local"],
+.booking-form textarea { padding: 10px; border: 1px solid #e6e6e6; border-radius: 6px; font-size: 14px; margin-top: 6px; }
+.booking-form textarea { resize: vertical; }
+.form-actions { grid-column: 1 / -1; display:flex; gap: 10px; margin-top: 6px; }
+.note { font-size: 13px; color: #666; margin-top: 6px; }
+
+/* 예약 결과 메시지 */
+.booking-result { margin-top: 10px; font-size: 14px; }
+
+/* 지도 스타일 */
+.map-wrap { margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid #e9e9e9; height: 320px; }
+.map-wrap iframe { width: 100%; height: 100%; border: 0; }
+
+/* 연락처 */
+.contact p { margin-bottom: 8px; color: #444; }
+.phone-link { color: #ff5fa0; text-decoration: none; font-weight: 600; }
+
+/* 푸터 */
+.site-footer { padding: 22px 0; text-align: center; color: #777; border-top: 1px solid #eee; margin-top: 28px; font-size: 14px; }
+
+/* 고정 전화 버튼 (오른쪽 하단) */
+.call-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(180deg,#ff5fa0,#ff8fb8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(255,95,160,0.24);
+  z-index: 999;
+}
+.call-button svg { display: block; }
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .banner { height: 360px; }
+  .site-title { font-size: 32px; }
+  .service-item { flex: 1 1 100%; }
+  .booking-form { grid-template-columns: 1fr; }
+  .map-wrap { height: 260px; }
+}

@@ -1,60 +1,164 @@
-/* 基础重置与字体 */
+/* 기본 리셋 및 폰트 */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif; color: #222; line-height: 1.6; background: #fff; }
+html, body { height: 100%; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans CJK KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; color: #222; line-height: 1.6; background: #fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 
-/* 容器 */
-.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+/* 컨테이너 */
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; width: calc(100% - 48px); }
 
-/* Banner */
-.banner { position: relative; height: 420px; overflow: hidden; display: block; }
+/* 반응형 폰트 크기 (기본) */
+.site-title { font-size: clamp(28px, 3.5vw, 42px); }
+
+/* 배너 */
+.banner { position: relative; height: 420px; overflow: hidden; display: block; border-bottom: 1px solid rgba(0,0,0,0.05); }
 .banner-img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
 .banner-overlay { position: relative; z-index: 2; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 .banner-overlay::before {
   content: "";
   position: absolute; left:0; top:0; right:0; bottom:0;
-  /* 遮罩：从暖色到透明，保证文字清晰且带粉色调 */
   background: linear-gradient(180deg, rgba(255,182,193,0.45), rgba(0,0,0,0.25));
   z-index: -1;
 }
 
-/* banner 内容 */
+/* 배너 내용 */
 .banner-content { text-align: center; color: #fff; padding: 20px; max-width: 900px; }
-.site-title { font-size: 42px; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
 .site-subtitle { font-size: 18px; margin-bottom: 16px; color: #ffeef6; }
 .btn-primary {
   display: inline-block;
   background: linear-gradient(90deg,#ff8fb8,#ff5fa0);
   color: #fff; padding: 10px 18px; border-radius: 28px; text-decoration: none;
   box-shadow: 0 6px 18px rgba(255,95,160,0.18);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn-primary:hover, .btn-primary:focus { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(255,95,160,0.22); }
+
+.btn-secondary {
+  display: inline-block;
+  background: #f0f0f0; color: #333; padding: 10px 16px; border-radius: 6px; border: 1px solid #e6e6e6; cursor: pointer;
 }
 
-/* 小头部（关于页用） */
+/* 작은 헤더(회사 소개 페이지용) */
 .small-header { background: #f9f5f7; padding: 30px 0 18px; margin-bottom: 18px; }
 .small-header .container h1 { font-size: 28px; margin-bottom: 6px; }
 .lead { color: #6b6b6b; margin-top: 4px; }
 
-/* Section 标题 */
+/* 섹션 제목 */
 .section-title { font-size: 24px; margin: 18px 0; color: #222; }
 
-/* Services grid */
-.service-grid { display: flex; gap: 18px; flex-wrap: wrap; }
-.service-item { flex: 1 1 calc(33.333% - 12px); background: #fff; border-radius: 8px; padding: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+/* 服务/서비스 그리드: 更灵活的网格布局 */
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.service-item { background: #fff; border-radius: 8px; padding: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); display:flex; flex-direction:column; }
 .service-item h3 { margin-top: 10px; margin-bottom: 8px; font-size: 18px; color: #222; }
-.service-item p { color: #555; font-size: 14px; }
+.service-item p { color: #555; font-size: 14px; flex: 1; }
 
-/* 图片占位（由你替换） */
-.service-image { width: 100%; height: 160px; border-radius: 6px; background: #f0f0f0; display:flex; align-items:center; justify-content:center; color:#999; font-size:14px; margin-bottom:8px; object-fit:cover; overflow:hidden; }
-.placeholder { background: linear-gradient(135deg,#f8f6f7,#efe9ec); border: 1px dashed #e4dfe2; }
+/* 이미지样式 */
+.service-image { width: 100%; height: 160px; border-radius: 6px; background: #f0f0f0; display: block; object-fit: cover; overflow: hidden; margin-bottom: 8px; max-width: 100%; }
 
-/* Contact */
-.contact p { margin-bottom: 8px; color: #444; }
+/* 预订/예약 폼 스타일 */
+.booking { margin-top: 20px; }
+.booking-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; align-items: start; }
+.booking-form label { display: flex; flex-direction: column; font-size: 14px; color: #333; }
+.booking-form input[type="text"],
+.booking-form input[type="tel"],
+.booking-form input[type="datetime-local"],
+.booking-form textarea { padding: 10px; border: 1px solid #e6e6e6; border-radius: 6px; font-size: 14px; margin-top: 6px; background: #fff; }
+.booking-form textarea { resize: vertical; min-height: 96px; }
+.form-actions { grid-column: 1 / -1; display:flex; gap: 10px; margin-top: 6px; }
+.form-actions button { cursor: pointer; border: 0; }
 
-/* Footer */
+/* 结果提示 */
+.booking-result { margin-top: 10px; font-size: 14px; }
+
+/* 地图样式 */
+.map-wrap { margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid #e9e9e9; height: 320px; }
+.map-wrap iframe { width: 100%; height: 100%; border: 0; }
+
+/* 연락처 (about.html 专用美化) */
+.contact-list { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 기본: 텍스트 왼쪽, 아이콘 오른쪽 (데스크탑에서 유지) */
+  gap: 12px;
+  padding: 12px 14px;
+  background: linear-gradient(180deg,#fff,#fff);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+.contact-item:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #111;
+  min-width: 0;
+}
+.contact-link .contact-text { font-size: 13px; color: #666; }
+.contact-link .contact-meta { font-size: 16px; font-weight: 700; color: #0e0e0e; margin-top: 4px; }
+
+/* 아이콘 버튼 (우측) */
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(180deg,#ff5fa0,#ff8fb8);
+  color: #fff;
+  text-decoration: none;
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(255,95,160,0.14);
+}
+
+/* 链接视觉焦点 */
+a:focus { outline: 3px solid rgba(255,95,160,0.16); outline-offset: 3px; border-radius: 6px; }
+
+/* 푸터 */
 .site-footer { padding: 22px 0; text-align: center; color: #777; border-top: 1px solid #eee; margin-top: 28px; font-size: 14px; }
 
-/* 响应式 */
+/* 고정 전화 버튼 (오른쪽 하단) */
+.call-button {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(180deg,#ff5fa0,#ff8fb8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(255,95,160,0.24);
+  z-index: 999;
+}
+.call-button svg { display: block; }
+
+/* 반응형 규칙: 모바일 우선 스타일 조정 */
 @media (max-width: 900px) {
   .banner { height: 360px; }
-  .site-title { font-size: 32px; }
-  .service-item { flex: 1 1 100%; }
+  .service-item { flex-direction: column; }
+  .booking-form { grid-template-columns: 1fr; }
+  .map-wrap { height: 260px; }
+
+  /* 연락처布局 (移动端): 图标放左侧，文本在右侧，便于点击和阅读 */
+  .contact-item { flex-direction: row; align-items: center; justify-content: flex-start; }
+  .contact-icon { order: 0; margin-right: 12px; }
+  .contact-link { order: 1; flex: 1; }
+
+  /* 按钮在移动端铺满 */
+  .form-actions { flex-direction: column; }
+  .form-actions button { width: 100%; padding: 12px; }
+}
+
+/* 更宽屏幕优化：桌面保持图标在右侧 */
+@media (min-width: 901px) {
+  .container { padding: 32px; }
+  .service-image { height: 180px; }
+  .contact-link { text-align: left; }
+  .contact-icon { order: 2; }
+  .contact-link { order: 1; }
 }

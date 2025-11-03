@@ -1,110 +1,60 @@
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #fff5f8;
-  color: #333;
+/* 基础重置与字体 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif; color: #222; line-height: 1.6; background: #fff; }
+
+/* 容器 */
+.container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+/* Banner */
+.banner { position: relative; height: 420px; overflow: hidden; display: block; }
+.banner-img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.banner-overlay { position: relative; z-index: 2; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.banner-overlay::before {
+  content: "";
+  position: absolute; left:0; top:0; right:0; bottom:0;
+  /* 遮罩：从暖色到透明，保证文字清晰且带粉色调 */
+  background: linear-gradient(180deg, rgba(255,182,193,0.45), rgba(0,0,0,0.25));
+  z-index: -1;
 }
 
-/* Hero Section */
-.hero {
-  background: url('banner.jpg') no-repeat center center;
-  background-size: cover;
-  height: 400px;
-}
-.hero-text h1 {
-  font-size: 3rem;
-  margin: 0;
-}
-.hero-text p {
-  font-size: 1.5rem;
+/* banner 内容 */
+.banner-content { text-align: center; color: #fff; padding: 20px; max-width: 900px; }
+.site-title { font-size: 42px; margin-bottom: 8px; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.4); }
+.site-subtitle { font-size: 18px; margin-bottom: 16px; color: #ffeef6; }
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(90deg,#ff8fb8,#ff5fa0);
+  color: #fff; padding: 10px 18px; border-radius: 28px; text-decoration: none;
+  box-shadow: 0 6px 18px rgba(255,95,160,0.18);
 }
 
-/* Services */
-.services {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px;
-  flex-wrap: wrap;
-}
-.service {
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-.service img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
+/* 小头部（关于页用） */
+.small-header { background: #f9f5f7; padding: 30px 0 18px; margin-bottom: 18px; }
+.small-header .container h1 { font-size: 28px; margin-bottom: 6px; }
+.lead { color: #6b6b6b; margin-top: 4px; }
 
-/* Pricing */
-.pricing {
-  background: #ffe3eb;
-  padding: 40px;
-}
-.pricing h2 {
-  text-align: center;
-}
-.pricing ul {
-  list-style: none;
-  padding: 0;
-}
-.pricing li {
-  margin: 10px 0;
-  font-size: 1.2rem;
-  text-align: center;
-}
+/* Section 标题 */
+.section-title { font-size: 24px; margin: 18px 0; color: #222; }
 
-/* Booking */
-.booking {
-  background: #fff0f5;
-  padding: 40px;
-  text-align: center;
-}
-.booking form {
-  max-width: 400px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.booking input, .booking textarea {
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-.booking button {
-  background-color: #ff4d8a;
-  color: white;
-  border: none;
-  padding: 12px;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.booking button:hover {
-  background-color: #e63e7a;
-}
+/* Services grid */
+.service-grid { display: flex; gap: 18px; flex-wrap: wrap; }
+.service-item { flex: 1 1 calc(33.333% - 12px); background: #fff; border-radius: 8px; padding: 14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+.service-item h3 { margin-top: 10px; margin-bottom: 8px; font-size: 18px; color: #222; }
+.service-item p { color: #555; font-size: 14px; }
+
+/* 图片占位（由你替换） */
+.service-image { width: 100%; height: 160px; border-radius: 6px; background: #f0f0f0; display:flex; align-items:center; justify-content:center; color:#999; font-size:14px; margin-bottom:8px; object-fit:cover; overflow:hidden; }
+.placeholder { background: linear-gradient(135deg,#f8f6f7,#efe9ec); border: 1px dashed #e4dfe2; }
 
 /* Contact */
-.contact {
-  padding: 40px;
-  text-align: center;
-}
-.kakao-btn {
-  display: inline-block;
-  background-color: #ffe812;
-  padding: 10px 20px;
-  color: #000;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-.kakao-btn:hover {
-  background-color: #ffd700;
+.contact p { margin-bottom: 8px; color: #444; }
+
+/* Footer */
+.site-footer { padding: 22px 0; text-align: center; color: #777; border-top: 1px solid #eee; margin-top: 28px; font-size: 14px; }
+
+/* 响应式 */
+@media (max-width: 900px) {
+  .banner { height: 360px; }
+  .site-title { font-size: 32px; }
+  .service-item { flex: 1 1 100%; }
 }

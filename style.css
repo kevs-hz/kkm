@@ -7,13 +7,9 @@ body {
 
 /* Hero Section */
 .hero {
-  background: url('https://picsum.photos/1200/800?random=10') center/cover no-repeat;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
+  background: url('images/banner.jpg') no-repeat center center;
+  background-size: cover;
+  height: 400px;
 }
 .hero-text h1 {
   font-size: 3rem;
